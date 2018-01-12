@@ -1,22 +1,15 @@
-// Not working yet. Womp womp.
-
 'use strict';
 
 function insertDash(num) {
-  var num = 4054793;
-  num = num.toString();
-  var numArray = num.split('');
-  var data = [];
+  let numArr = num.toString().split('');
   
-  for(var i = 0; i < numArray.length; i++) {
-    var x = parseInt(numArray[i]);
-    var y = x % 2;
-  
-    if (y === 0) {
-      data.push(numArray[i]);
-    } else {
-      data.push(numArray[i] + '-');
+  for(let i = 1; i < numArr.length; i++) {
+    if (parseInt(numArr[i - 1]) % 2 === 1 && parseInt(numArr[i]) % 2 === 1) {
+      numArr.splice(i, 0, '-');
+      i++;
     }
-    data.join(',').replace(/,/g,'');
   }
+  return numArr.reduce(function(runningTotal,newVal) {
+    return runningTotal + newVal; 
+  });
 }
