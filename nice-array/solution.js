@@ -1,24 +1,15 @@
 function isNice(arr){
-  var niceArr = [];
-  var counter = 0;
+  let flag = [];
 
   for(var i = 0; i < arr.length; i++) {
-    console.log('i',i)
-    var x = arr[i] - 1;
-    var y = arr[i] + 1;
-
-    for(var j = 0; j < arr.length; j++) {
-      if (x === arr[j] || y === arr[j]) {
-        //
-      }
-    }
+    if (arr.indexOf(arr[i] - 1) === -1 && arr.indexOf(arr[i] + 1) === -1) {
+      flag.push(false);
+    };
   }
 
-  // if (arr.length === niceArr.length) {
-  //   return true;
-  // } else if (arr.length === 0) {
-  //   return false;
-  // } else {
-  //   return false;
-  // }
+  if (flag.length > 0 || arr.length === 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
