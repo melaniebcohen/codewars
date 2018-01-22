@@ -1,19 +1,8 @@
-function find_average(array) {
-  var sum = array.reduce(function(prev, cur) {
-    return prev + cur;
+function filter_list(l) {
+  // Return a new array with the strings filtered out
+  return l.filter(function(n) {
+    if (Number.isInteger(n) === true) {
+      return n;
+    }
   })
-  return sum / array.length;
-}
-
-// refactored for ES6
-function find_average(array) {
-  var sum = array.reduce((prev, cur) => {
-    return prev + cur;
-  })
-  return sum / array.length;
-}
-
-// refactored again
-function find_average(array) {
-  return (array.reduce((prev, cur) => { return prev + cur; })) / array.length;
 }
