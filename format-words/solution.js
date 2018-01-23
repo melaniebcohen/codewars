@@ -5,9 +5,10 @@ function formatWords(words){
   }
   if (words.length > 0) {
     var filtered = words.filter(word => { return word !== ''});
-    console.log(filtered)
 
-    if (filtered.length === 1) {
+    if (filtered.length === 0) {
+      return "";
+    } else if (filtered.length === 1) {
       return filtered.join('');
     } else if (filtered.length === 2) {
       return filtered.join(' and ');
