@@ -1,14 +1,19 @@
 function formatWords(words){
-  var filtered = words.filter(word => { return word !== ''});
 
-  if (words.length === 0) {
+  if (words === null || words.length === 0) {
     return '';
-  } else if (filtered.length === 1) {
-    return filtered.join('');
-  } else if (filtered.length === 2) {
-    return filtered.join(' and ');
-  } else {
-    let newArr = `and ${filtered.pop()}`
-    return `${filtered.join(', ')} ${newArr}`;
+  }
+  if (words.length > 0) {
+    var filtered = words.filter(word => { return word !== ''});
+    console.log(filtered)
+
+    if (filtered.length === 1) {
+      return filtered.join('');
+    } else if (filtered.length === 2) {
+      return filtered.join(' and ');
+    } else if (filtered.length > 2) {
+      let newArr = `and ${filtered.pop()}`
+      return `${filtered.join(', ')} ${newArr}`;
+    }
   }
 }
