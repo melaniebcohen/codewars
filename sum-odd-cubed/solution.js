@@ -1,21 +1,27 @@
 function cubeOdd(arr) {
-  var filtered = arr.filter(item => {
-    if (typeof item !== 'number') {
-      return undefined;
-    } else if (typeof item === 'number' || item === 0) { 
-      return item;
-    }}).map(num => {
+  console.log(arr)
+  // contains string - flag
+  let flag;
+
+  for(var i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'string') {
+      flag = true;
+      break;
+    } else {
+      flag = false;
+    }
+  }
+
+  if (flag === false) {
+    return arr.map(num => {
       return Math.pow(num, 3);
     }).filter(num => {
       if (num % 2 !== 0) {
         return num;
-    }}).reduce((prev,cur) => {
+      }}).reduce((prev,cur) => {
       return prev + cur;
     })
-    
-  return filtered;
+  } else {
+    return undefined;
+  }
 }
-
-cubeOdd([1, 2, 3, 4])
-cubeOdd([-3,-2,2,3])
-cubeOdd(["a",12,9,"z",42])
