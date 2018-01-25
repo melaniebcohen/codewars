@@ -15,11 +15,7 @@ function high(x){
     }
     valueArr.push(counter);
   }
-  console.log(valueArr);
 
-// TO DO
-// Find highest number
-// Add logic for duplicates
+  var max = valueArr.indexOf(Math.max(...valueArr));
+  return stringArr[max]
 }
-
-high('man i need a taxi up to ubud')
